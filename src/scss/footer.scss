@@ -1,0 +1,193 @@
+.footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    min-height: 106px;
+    padding: 10px 0;
+    color: #fff;
+    background-color: $drk;
+    &__left {
+        width: 79%;
+        grid-column: 1/span 3;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+    &__container,
+    &__right {
+        grid-column: 11/span 2;
+        justify-self: end;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+    &__container,
+    &__right {
+        align-items: center;
+    }
+    &__container {
+        justify-content: space-between;
+        &_tablet {
+            padding-top: 15px;
+            padding-bottom: 12px;
+        }
+    }
+    &__left,
+    &__right {
+        flex-direction: column;
+    }
+    &__company {
+        font-family: $fontTT;
+        font-size: 14px;
+        line-height: 18px;
+    }
+    &__quote {
+        margin: 0;
+        padding: 0;
+        padding-top: 5px;
+        grid-column: 5/span 4;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        line-height: 22px;
+        color: #cacaca;
+    }
+    &__text {
+        color: #cacaca;
+    }
+    &__name {
+        color: #666666;
+        font-style: normal;
+    }
+    &__text,
+    &__name,
+    &__more {
+        font-family: $fontRob;
+    }
+    &__more {
+        font-size: 16px;
+        line-height: 22px;
+        margin-bottom: 8px;
+    }
+    &__mobile {
+        display: none;
+        background-color: #4a4a4a;
+    }
+}
+
+@media (max-width: 1024px) {
+    .footer {
+        &__left {
+            width: 100%;
+        }
+        &__quote {
+            width: 446px;
+            padding-left: 93px;
+            grid-column: span 3;
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .footer {
+        &__quote {
+            display: none;
+        }
+        &__quote {
+            margin-left: 43px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        &__left {
+            grid-column: 1/span 4;
+        }
+        &__right {
+            grid-column: 11/span 5;
+        }
+    }
+}
+
+@media (max-width: 620px) {
+    .footer {
+      width: 100%;
+        &__container {
+          grid-template-columns: repeat(1,1fr);
+            &_desk {
+                padding-top: 31px;
+                padding-bottom: 30px;
+            }
+            &_tablet {
+                padding-top: 14px;
+            }
+        }
+        &__logo {
+            margin-bottom: 4px;
+        }
+        &__right{
+          grid-column: 1/span 1;
+          justify-self: revert;
+        }
+        &__left {
+          grid-column: 1/span 1;
+            &_desk {
+                display: none;
+            }
+            &_mobile {
+                align-items: center;
+            }
+        }
+        &__quote {
+            display: none;
+        }
+        &__mobile {
+            display: block;
+            grid-column: 1/span 1;
+        }
+    }
+}
+
+@media (max-width: 320px) {
+    .footer {
+        &__container_desk {
+            padding-bottom: 15px;
+            padding-top: 25px;
+        }
+        &__container_tablet {
+            height: 92px;
+        }
+        &__company {
+            font-size: 10px;
+            line-height: 13px;
+        }
+        &__container_tablet{
+          padding-top: 0;
+          margin-top: -7px;
+        }
+    }
+}

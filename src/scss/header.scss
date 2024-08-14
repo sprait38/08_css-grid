@@ -1,0 +1,324 @@
+@media (min-width: 3200px) {
+    .header {
+        &__logo {
+            margin-right: 25px;
+        }
+    }
+}
+
+@keyframes showSearch {
+    0% {
+        transform: scaleX(0);
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes hideElem {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    -ms-flex-line-pack: center;
+    min-height: 80px;
+    padding: 10px 0;
+    background-color: #202020;
+    &__container,
+    &__submenu-container,
+    &__form,
+    &__tel {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    &__menu {
+        background-color: #202020;
+        &-container {
+            position: relative;
+        }
+    }
+    &__submenu-container {
+        justify-content: space-between;
+    }
+    &__submenu {
+        position: relative;
+        background-color: #4a4a4a;
+        display: none;
+        &-container {
+            padding-top: 7px;
+            padding-bottom: 2px;
+        }
+    }
+    &__tel {
+        font-weight: 700;
+        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+        svg {
+            fill: $wht;
+            transition: fill 0.2s ease-in-out;
+        }
+        &_tablet {
+            margin-right: 41px;
+        }
+        &:hover {
+            color: $orng;
+            svg {
+                fill: $orng;
+            }
+        }
+        &:focus {
+            background-color: $orngFcs;
+            color: $wht;
+            svg {
+                fill: $wht;
+            }
+        }
+        &:active {
+            background-color: transparent;
+            color: $orngActv;
+            svg {
+                fill: $orngActv;
+            }
+        }
+    }
+    &__form:hover &__inp,
+    &__inp:focus {
+        border-bottom-color: $orng;
+    }
+    &__search {
+        display: block;
+        svg {
+            fill: #bcbcbc;
+            transition: fill 0.2s ease-in-out;
+        }
+        &_hidden {
+            display: none;
+        }
+        &:hover {
+            svg {
+                fill: $orng;
+            }
+        }
+        &:focus {
+            svg {
+                fill: $orngFcs;
+            }
+        }
+        &:active {
+            svg {
+                fill: $orngActv;
+            }
+        }
+    }
+    &__tablet-block {
+        grid-column: span 2;
+        justify-self: right;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        margin: 0;
+        padding-right: 5px;
+    }
+    &__inp {
+        transition: border-bottom-color 0.2s ease-in-out;
+        font-size: 14px;
+        line-height: 18px;
+        border-bottom: 1px solid $wht;
+        width: 169px;
+        &_tablet {
+            position: absolute;
+            margin-top: 60px;
+            display: none;
+            transform: scaleX(0);
+            transition: transform 0.2s ease-in-out;
+            left: 45%;
+            z-index: 10;
+            background-color: $drk;
+            &_active {
+                animation: showSearch 0.2s ease-in-out;
+                transform: scaleX(1);
+            }
+        }
+        &::placeholder {
+            color: $wht;
+        }
+        &:active {
+            border-bottom-color: $orngActv;
+        }
+    }
+    &__close {
+        display: none;
+        &_active {
+            display: block;
+            animation: showElem 0.3s ease-in-out;
+        }
+    }
+    &__btn {
+        display: none;
+    }
+    .burger {
+        position: absolute;
+        display: none;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        width: 280px;
+        padding: 14px 18px 36px;
+        opacity: 0;
+        background-color: $drk;
+        visibility: hidden;
+        transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+        &__close {
+            margin-bottom: 16px;
+            cursor: pointer;
+        }
+        &_active {
+            opacity: 1;
+            visibility: visible;
+            animation: showElem 0.2s ease-in-out;
+        }
+        &__menu {
+            margin-bottom: 212px;
+        }
+        &__item:not(:last-child) {
+            margin-bottom: 30px;
+        }
+        &__link {
+            font-family: $fontTT;
+            font-size: 16px;
+            line-height: 21px;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .header {
+        position: relative;
+        padding: 26px 0;
+        &__tablet-block {
+            grid-column: span 1;
+            padding-right: 0px;
+        }
+    }
+}
+
+@media (max-width: 916px) {
+    .header {
+        margin-bottom: 47px;
+        &__tablet-block {
+            width: 100%;
+            grid-column: 8;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        &__menu {
+            &-container {
+                padding-bottom: 27px;
+            }
+        }
+        &__nav {
+            &_desk {
+                display: block;
+                padding-top: 12px;
+                margin-right: 0px;
+                padding-left: 27px;
+                padding-right: 35px;
+            }
+        }
+        padding-bottom: 19px;
+    }
+}
+
+@media (max-width: 620px) {
+    .header {
+        padding-top: 22px;
+        padding-bottom: 11px;
+        margin-bottom: 0;
+        &__container {
+            width: 100%;
+        }
+        &__nav {
+            &_desk {
+                display: none;
+                padding-top: 38px;
+            }
+        }
+        &__tablet-block {
+            width: 100%;
+            grid-column: 7;
+        }
+        &__submenu-container{
+          margin: 0;
+          margin-left: -21px;
+        }
+        &__submenu {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            grid-column: 1/9;
+            grid-row: 2/2;
+        }
+        &__btn {
+            display: block;
+        }
+        &__tel {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 18px;
+            &_desk {
+                display: flex;
+            }
+            &_tablet {
+                display: none;
+            }
+        }
+    }
+}
+
+@media (max-width: 320px) {
+    .header {
+        margin-bottom: 0;
+        &__tablet-block {
+            width: 100%;
+            grid-column: 7;
+        }
+        &__tel {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 18px;
+            &_desk {
+                display: flex;
+            }
+            &_tablet {
+                display: none;
+            }
+        }
+        &__submenu {
+            grid-column: 1/8;
+        }
+        &__inp {
+            left: 21px;
+            width: 77.5%;
+            font-size: 14px;
+            line-height: 18px;
+        }
+        &__btn {
+            display: block;
+        }
+    }
+}
